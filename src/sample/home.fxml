@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #ffd149;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="336.0" style="-fx-background-color: #ffa000;">
          <children>
-            <FontAwesomeIconView glyphName="GITHUB_ALT" layoutX="110.0" layoutY="150.0" size="120" wrappingWidth="116.0" />
+            <FontAwesomeIconView fill="#9a0808" glyphName="GITHUB_ALT" layoutX="110.0" layoutY="150.0" size="120" wrappingWidth="116.0" />
             <Label layoutX="65.0" layoutY="193.0" text="Welcome to MIT-SAIYAI" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -41,7 +41,7 @@
             <Font size="14.0" />
          </font>
       </JFXPasswordField>
-      <FontAwesomeIconView glyphName="USER" layoutX="385.0" layoutY="116.0" size="22" />
-      <FontAwesomeIconView glyphName="LOCK" layoutX="386.0" layoutY="168.0" size="23" />
+      <FontAwesomeIconView fill="#ffa000" glyphName="USER" layoutX="385.0" layoutY="116.0" size="22" />
+      <FontAwesomeIconView fill="#ffa000" glyphName="LOCK" layoutX="386.0" layoutY="168.0" size="23" />
    </children>
 </AnchorPane>

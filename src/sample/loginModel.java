@@ -17,11 +17,16 @@ public class loginModel {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        if (this.connection ==null) System.exit(1);
+       // if (this.connection ==null) System.exit(1);
     }
 
     public boolean isDatabaseConnection(){
-        return this.connection != null;
+        if (this.connection ==null)
+            return false;
+        else {
+            return true;
+        }
+
     }
 
     public boolean isLogin(String username, String password) throws SQLException {

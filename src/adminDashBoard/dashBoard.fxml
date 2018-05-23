@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="adminDashBoard.dashBoardController">
+   <children>
+      <Pane prefHeight="71.0" prefWidth="800.0" style="-fx-background-color: #ffa000;">
+         <children>
+            <Label layoutX="14.0" layoutY="18.0" text="Welcome !!!">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="71.0" prefHeight="429.0" prefWidth="200.0" style="-fx-background-color: #ffd149; -fx-border-color: #ffa000;">
+         <children>
+            <VBox layoutX="-1.0" layoutY="37.0" prefHeight="342.0" prefWidth="200.0">
+               <children>
+                  <JFXButton prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ffa000;" text="Add">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="USER_PLUS" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton prefHeight="40.0" prefWidth="254.0" style="-fx-background-color: #ffa000;" text="Edit">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="EDIT" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #ffa000;" text="Delete">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="REMOVE" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: AA3939;" text="Logout" textFill="#fffefe">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIconView fill="#e4e0e0" glyphName="SIGN_OUT" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <TableView layoutX="251.0" layoutY="117.0" prefHeight="352.0" prefWidth="520.0" style="-fx-border-color: #ffa000;">
+        <columns>
+          <TableColumn prefWidth="51.0" text="ID" />
+          <TableColumn prefWidth="148.0" text="Name" />
+            <TableColumn prefWidth="94.0" text="Position" />
+            <TableColumn prefWidth="146.0" text="Email" />
+            <TableColumn prefWidth="79.0" text="Salary" />
+        </columns>
+      </TableView>
+      <JFXTextField layoutX="280.0" layoutY="83.0" prefHeight="25.0" prefWidth="262.0" />
+      <FontAwesomeIconView fill="#c67100" glyphName="SEARCH" layoutX="254.0" layoutY="110.0" size="20" />
+      <JFXButton layoutX="688.0" layoutY="90.0" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #3FBF3F;" text="Load">
+         <graphic>
+            <FontAwesomeIconView glyphName="DOWNLOAD" />
+         </graphic>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,17 +1,27 @@
 package adminDashBoard;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import dbUtil.dbConnection;
 import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -34,6 +44,21 @@ public class dashBoardController implements Initializable {
     private TableColumn<Employee,String> emailcolum;
     @FXML
     private TableColumn<Employee,String> salarycolum;
+
+    @FXML
+    private JFXButton btnAdd;
+
+    @FXML
+    private JFXButton btnEdit;
+
+    @FXML
+    private JFXButton btnDelete;
+
+    @FXML
+    private JFXButton btnLogout;
+
+    @FXML
+    private JFXTextField searchTxt;
 
     private dbConnection db;
     private ObservableList<Employee> data;
@@ -74,8 +99,63 @@ public class dashBoardController implements Initializable {
         this.employeeTable.setItems(null);
         this.employeeTable.setItems(this.data);
 
+        //Filter Data in TableView
+        FilteredList<Employee> filteredData =
+                new FilteredList<>(data, e -> true);
+        searchTxt.setOnKeyReleased(e -> {
+            searchTxt.textProperty().addListener(
+                    (observable, oldValue, newValue) -> {
+                        filteredData.setPredicate(Employee -> {
+                            if (newValue == null || newValue.isEmpty()) {
+                                return true;
+                            }
+                            String lowerCaseFilter = newValue.toLowerCase();
+                            if (Employee.getId().contains(newValue)) {
+                                return true;
+                            } else if
+                                    (Employee.getName().toLowerCase().contains(lowerCaseFilter)) {
+                                return true;
+                            } else if
+                                    (Employee.getPosition().toLowerCase().contains(lowerCaseFilter)) {
+                                return true;
+                            }
+                            return false;
+                        });
+                    });
+            SortedList<Employee> sortedData =
+                    new SortedList<>(filteredData);
+            sortedData.comparatorProperty().bind(
+                    employeeTable.comparatorProperty());
+            employeeTable.setItems(sortedData);
+
+        });
 
     }
+
+    @FXML
+    public void addEmployee(ActionEvent event){
+        try {
+            Stage addEmployeeStage = new Stage();
+            FXMLLoader loader = new FXMLLoader();
+            Pane root = loader.load(getClass()
+                    .getResource("/adminDashBoard/addEmployee.fxml").openStream());
+            addEmployeeController db = loader.getController();
+
+            Scene scene = new Scene(root);
+            addEmployeeStage.setScene(scene);
+            addEmployeeStage.setTitle("Add Employee");
+            addEmployeeStage.initStyle(StageStyle.UNDECORATED);
+            addEmployeeStage.initStyle(StageStyle.UTILITY);
+
+
+            addEmployeeStage.setResizable(false);
+            addEmployeeStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
